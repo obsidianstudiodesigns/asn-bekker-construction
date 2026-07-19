@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASN Bekker Construction — Building Quality. Delivering Trust.</title>
+<meta name="description" content="ASN Bekker Construction offers professional and reliable building services for all your residential renovation and construction needs — new builds, renovations, roofing, waterproofing, paving, tiling and more. Call for a quote today.">
+<meta name="theme-color" content="#0E0E0E">
+<link rel="icon" href="assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/logo.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ASN Bekker Construction — Building Quality. Delivering Trust.">
+<meta property="og:description" content="Professional and reliable building services for all your residential renovation and construction needs — inside and out.">
+<meta property="og:image" content="assets/video/hero-poster.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "ASN Bekker Construction",
+  "slogan": "Building Quality. Delivering Trust.",
+  "description": "Professional and reliable building services for all your residential renovation and construction needs — inside and out.",
+  "telephone": "+27724801647",
+  "email": "asnbekker@gmail.com",
+  "address": { "@type": "PostalAddress", "addressCountry": "ZA" },
+  "areaServed": "South Africa",
+  "makesOffer": [
+    "New Builds","Home Renovations","Extensions","Roofing & Roof Repairs","Waterproofing",
+    "Painting — Interior & Exterior","Tiling","Paving","Ceilings & Partitioning",
+    "Plumbing & Electrical","General Maintenance"
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============ icon sprite ============ -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <g id="i-newbuild"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></g>
+    <g id="i-reno"><path d="M3 21h18M6 21V8h12v13M9 12h2M13 12h2M9 16h2M13 16h2M4 8l8-5 8 5"/></g>
+    <g id="i-extension"><path d="M3 21h18M5 21V10h8v11M13 21V6h6v15M8 14h2M16 10h1M16 14h1"/></g>
+    <g id="i-roof"><path d="M2 12 12 4l10 8M5 12v9h14v-9M9 21v-5h6v5"/></g>
+    <g id="i-water"><path d="M12 3s6 6.5 6 10.5A6 6 0 0 1 6 13.5C6 9.5 12 3 12 3Z"/><path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5"/></g>
+    <g id="i-paint"><path d="M4 4h13v6H4zM10 10v4M8 14h4v6H8z"/><path d="M17 5h3v4h-3"/></g>
+    <g id="i-tile"><path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z"/></g>
+    <g id="i-paving"><path d="M2 8h6v5H2zM8 8h7v5H8zM15 8h7v5h-7zM2 13h9v5H2zM11 13h11v5H11z"/></g>
+    <g id="i-ceiling"><path d="M3 5h18M3 5v3h18V5M6 8v11M12 8v11M18 8v11M3 19h18"/></g>
+    <g id="i-plumb"><path d="M7 3v6a4 4 0 0 0 4 4h2a4 4 0 0 1 4 4v4M4 3h6M14 21h6"/><path d="M13 9h6l-3 4Z"/></g>
+    <g id="i-maint"><path d="m14.5 6.5 3-3a5 5 0 0 0-6.6 6.6L3 18l3 3 7.9-7.9a5 5 0 0 0 6.6-6.6l-3 3-2-2Z"/></g>
+    <g id="i-phone"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></g>
+    <g id="i-mail"><path d="M3 5h18v14H3zM3 6l9 7 9-7"/></g>
+    <g id="i-wa"><path d="M20.5 11.6A8.4 8.4 0 0 1 7.9 19l-4.4 1.2 1.2-4.3A8.4 8.4 0 1 1 20.5 11.6Z"/><path d="M8.9 8.2c.2-.5.4-.5.6-.5h.5c.2 0 .4 0 .6.5l.7 1.7c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3 0 .6a6 6 0 0 0 2.7 2.3c.3.1.4 0 .6-.1l.6-.7c.2-.2.3-.2.6-.1l1.6.8c.2.1.4.2.4.4a1.9 1.9 0 0 1-1.3 1.7 4 4 0 0 1-3-.6 10 10 0 0 1-4-4.1 3.7 3.7 0 0 1-.4-2.5Z"/></g>
+    <g id="i-fb"><path d="M15 3h-2.5A4.5 4.5 0 0 0 8 7.5V10H5.5v4H8v8h4v-8h3l1-4h-4V7.5A.5.5 0 0 1 12.5 7H15Z"/></g>
+    <g id="i-pin"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></g>
+    <g id="i-check"><path d="m4 12.5 5.2 5.2L20 7"/></g>
+    <g id="i-arrow"><path d="M5 12h14M13 6l6 6-6 6"/></g>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ header ============ -->
+<header class="hdr" id="hdr">
+  <div class="hdr__in">
+    <a class="brand" href="#top" aria-label="ASN Bekker Construction — home">
+      <img src="assets/img/logo.png" alt="ASN Bekker Construction" width="635" height="373" decoding="async">
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Our Work</a>
+      <a href="#contact">Contact</a>
+      <a class="nav__cta" href="https://wa.me/27724801647" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Get a quote
+      </a>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ hero ============ -->
+<section class="hero" id="top">
+  <div class="hero__media">
+    <video id="heroVid" poster="assets/video/hero-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
+      <source src="assets/video/hero.webm" type="video/webm">
+      <source src="assets/video/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero__scrim"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero__in">
+    <p class="eyebrow eyebrow--light" data-rise>
+      <span class="eyebrow__bar"></span>Residential &amp; Commercial Building Contractor
+    </p>
+
+    <h1 class="hero__h1">
+      <span class="ln" data-rise data-rise-d="60">Building Quality.</span>
+      <span class="ln ln--red" data-rise data-rise-d="140">Delivering Trust.</span>
+    </h1>
+
+    <p class="hero__lede" data-rise data-rise-d="220">
+      Professional, reliable building services for all your residential renovation
+      and construction needs — inside and out.
+    </p>
+
+    <div class="hero__cta" data-rise data-rise-d="300">
+      <a class="btn btn--red" href="#contact">
+        Request a free quote <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="tel:+27724801647">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg> 072 480 1647
+      </a>
+    </div>
+
+    <ul class="hero__marks" data-rise data-rise-d="380">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Quality workmanship</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Competitive prices</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg>Reliable &amp; on time</li>
+    </ul>
+  </div>
+
+  <a class="hero__scroll" href="#about" aria-label="Scroll to content">
+    <span class="hero__scrollLine"></span>Scroll
+  </a>
+</section>
+
+<!-- ============ about ============ -->
+<section class="about sec sec--paper" id="about">
+  <div class="wrap about__grid">
+    <div class="about__left">
+      <p class="eyebrow" data-rise><span class="eyebrow__bar"></span>01 — Who we are</p>
+      <h2 class="h2" data-rise data-rise-d="60">
+        No job too big<br>or too small —<br><em>we do it all.</em>
+      </h2>
+    </div>
+
+    <div class="about__right">
+      <p class="lede" data-rise>
+        ASN Bekker Construction offers professional and reliable building services
+        for all your residential renovation and construction needs — inside and out.
+      </p>
+      <p data-rise data-rise-d="80">
+        We take pride in our workmanship, attention to detail and commitment to
+        every project, big or small. From a single leaking roof sheet to a full
+        new build, the same standard applies: do it properly, do it once, and
+        leave the site the way we'd want our own home left.
+      </p>
+
+      <ul class="pillars" data-rise data-rise-d="160">
+        <li>
+          <span class="pillars__n">01</span>
+          <h3>Quality Workmanship</h3>
+          <p>Detail-driven work by hands that have done it before.</p>
+        </li>
+        <li>
+          <span class="pillars__n">02</span>
+          <h3>Competitive Prices</h3>
+          <p>Honest, itemised quotes with no surprises at the end.</p>
+        </li>
+        <li>
+          <span class="pillars__n">03</span>
+          <h3>Reliable &amp; On Time</h3>
+          <p>We show up when we say we will and keep you updated.</p>
+        </li>
+        <li>
+          <span class="pillars__n">04</span>
+          <h3>Satisfaction Guaranteed</h3>
+          <p>We're not finished until you're happy with the result.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ services ============ -->
+<section class="sec sec--paper2" id="services">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <p class="eyebrow" data-rise><span class="eyebrow__bar"></span>02 — What we do</p>
+        <h2 class="h2" data-rise data-rise-d="60">Our Services</h2>
+      </div>
+      <p class="sechead__note" data-rise data-rise-d="120">
+        Eleven trades under one contractor — so you deal with one person from
+        first quote to final snag list.
+      </p>
+    </div>
+
+    <ul class="svc" id="svc">
+      <li class="svc__card" data-tilt data-rise>
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-newbuild"/></svg>
+        <h3>New Builds</h3>
+        <p>Ground-up residential construction, from foundations and slab through to handover.</p>
+        <span class="svc__n">01</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise data-rise-d="40">
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-reno"/></svg>
+        <h3>Home Renovations</h3>
+        <p>Kitchens, bathrooms and full interior overhauls that modernise without the mess.</p>
+        <span class="svc__n">02</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise data-rise-d="80">
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-extension"/></svg>
+        <h3>Extensions</h3>
+        <p>Extra rooms, patios and carports tied cleanly into the existing structure.</p>
+        <span class="svc__n">03</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise data-rise-d="120">
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-roof"/></svg>
+        <h3>Roofing &amp; Roof Repairs</h3>
+        <p>Re-sheeting, tile repairs, trusses, gutters and leak tracing done properly.</p>
+        <span class="svc__n">04</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise>
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-water"/></svg>
+        <h3>Waterproofing</h3>
+        <p>Roofs, chimneys, parapets and plinths sealed against the next big storm.</p>
+        <span class="svc__n">05</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise data-rise-d="40">
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-paint"/></svg>
+        <h3>Painting — Interior &amp; Exterior</h3>
+        <p>Proper prep, proper coats, crisp lines and surfaces that hold their colour.</p>
+        <span class="svc__n">06</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise data-rise-d="80">
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tile"/></svg>
+        <h3>Tiling</h3>
+        <p>Floors, walls and wet areas set level, square and grouted to last.</p>
+        <span class="svc__n">07</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise data-rise-d="120">
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-paving"/></svg>
+        <h3>Paving</h3>
+        <p>Driveways, walkways and patios laid on a base that won't sink or spread.</p>
+        <span class="svc__n">08</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise>
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ceiling"/></svg>
+        <h3>Ceilings &amp; Partitioning</h3>
+        <p>Drywall, bulkheads, cornices and partitions — clean lines, no sag.</p>
+        <span class="svc__n">09</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise data-rise-d="40">
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plumb"/></svg>
+        <h3>Plumbing &amp; Electrical</h3>
+        <p>Pipework, tanks, geysers, points and reticulation handled on site.</p>
+        <span class="svc__n">10</span>
+      </li>
+      <li class="svc__card" data-tilt data-rise data-rise-d="80">
+        <svg class="svc__ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-maint"/></svg>
+        <h3>General Maintenance</h3>
+        <p>The running snag list every property builds up — sorted in one visit.</p>
+        <span class="svc__n">11</span>
+      </li>
+      <li class="svc__card svc__card--cta" data-rise data-rise-d="120">
+        <h3>…and more</h3>
+        <p>If it's on your property and it needs building, fixing or finishing — ask us.</p>
+        <a class="svc__link" href="#contact">Tell us about it <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 3D process ============ -->
+<section class="proc sec--ink" id="process">
+  <div class="proc__canvasWrap">
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <!-- shown by default; blueprint.js hides it only once the scene is live,
+         so any failure path (no WebGL, blocked module, file://) still looks right -->
+    <div class="proc__fallback" id="sceneFallback"></div>
+  </div>
+
+  <div class="wrap proc__in">
+    <div class="proc__head">
+      <p class="eyebrow eyebrow--light" data-rise><span class="eyebrow__bar"></span>03 — How we build</p>
+      <h2 class="h2 h2--light" data-rise data-rise-d="60">From slab to<br>snag list.</h2>
+      <p class="proc__note" data-rise data-rise-d="120">
+        Every project runs through the same four stages. Scroll to watch it come together.
+      </p>
+    </div>
+
+    <ol class="steps" id="steps">
+      <li class="step" data-step="0">
+        <span class="step__n">01</span>
+        <h3>Site visit &amp; quote</h3>
+        <p>We come out, measure up and listen to what you actually want. You get a written, itemised quote — free, and with no obligation.</p>
+      </li>
+      <li class="step" data-step="1">
+        <span class="step__n">02</span>
+        <h3>Foundations &amp; structure</h3>
+        <p>Slab, brickwork and structural steel set out square and level. Get this stage right and everything after it is easier.</p>
+      </li>
+      <li class="step" data-step="2">
+        <span class="step__n">03</span>
+        <h3>Roof &amp; weatherproofing</h3>
+        <p>Trusses, sheeting or tiles, gutters and waterproofing — closed up and dry before any finishing work starts.</p>
+      </li>
+      <li class="step" data-step="3">
+        <span class="step__n">04</span>
+        <h3>Finishes &amp; handover</h3>
+        <p>Plaster, ceilings, tiling, paint and fittings. We walk the snag list with you and only call it done when you do.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ before / after ============ -->
+<section class="sec sec--paper" id="beforeafter">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <p class="eyebrow" data-rise><span class="eyebrow__bar"></span>04 — Proof</p>
+        <h2 class="h2" data-rise data-rise-d="60">Before &amp; After</h2>
+      </div>
+      <p class="sechead__note" data-rise data-rise-d="120">
+        A tired asbestos-and-fibre roof stripped and replaced with new IBR sheeting —
+        re-laid, sealed and painted.
+      </p>
+    </div>
+
+    <div class="ba" data-rise>
+      <figure class="ba__fig">
+        <span class="ba__tag ba__tag--before">Before</span>
+        <picture>
+          <source srcset="assets/img/roof-before.webp" type="image/webp">
+          <img src="assets/img/roof-before.jpg" alt="Old fibre-cement roof sheeting with loose timber and patched sections before replacement" width="1095" height="660" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <figure class="ba__fig">
+        <span class="ba__tag ba__tag--after">After</span>
+        <picture>
+          <source srcset="assets/img/roof-after.webp" type="image/webp">
+          <img src="assets/img/roof-after.jpg" alt="New IBR metal roof sheeting installed, sealed and painted" width="1090" height="648" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ work ============ -->
+<section class="sec sec--paper2" id="work">
+  <div class="wrap">
+    <div class="sechead">
+      <div>
+        <p class="eyebrow" data-rise><span class="eyebrow__bar"></span>05 — Our work</p>
+        <h2 class="h2" data-rise data-rise-d="60">Recent Projects</h2>
+      </div>
+      <p class="sechead__note" data-rise data-rise-d="120">
+        Real jobs, photographed on site. Filter by trade to see the work that matters to you.
+      </p>
+    </div>
+
+    <div class="filters" role="tablist" aria-label="Filter projects by trade" data-rise>
+      <button class="filters__b is-on" role="tab" aria-selected="true" data-f="all">All</button>
+      <button class="filters__b" role="tab" aria-selected="false" data-f="build">New Builds</button>
+      <button class="filters__b" role="tab" aria-selected="false" data-f="roof">Roofing &amp; Waterproofing</button>
+      <button class="filters__b" role="tab" aria-selected="false" data-f="paving">Paving &amp; Fencing</button>
+      <button class="filters__b" role="tab" aria-selected="false" data-f="interior">Interior &amp; Plumbing</button>
+      <button class="filters__b" role="tab" aria-selected="false" data-f="steel">Braai &amp; Steel</button>
+    </div>
+
+    <div class="gal" id="gal">
+      <figure class="gal__i gal__i--wide" data-cat="build" data-rise>
+        <button class="gal__btn" type="button" aria-label="View larger: brick hall new build">
+          <picture>
+            <source srcset="assets/img/newbuild-hall.webp" type="image/webp">
+            <img src="assets/img/newbuild-hall.jpg" alt="Large face-brick hall with new sheeted roof under construction" width="1332" height="751" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Brick Hall — New Build</strong><span>New Builds</span></figcaption>
+      </figure>
+
+      <figure class="gal__i gal__i--tall" data-cat="steel" data-rise data-rise-d="40">
+        <button class="gal__btn" type="button" aria-label="View larger: built-in braai">
+          <picture>
+            <source srcset="assets/img/braai-builtin.webp" type="image/webp">
+            <img src="assets/img/braai-builtin.jpg" alt="Built-in brick braai with steel grid and fire burning" width="747" height="1600" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Built-In Braai</strong><span>Braai &amp; Steel</span></figcaption>
+      </figure>
+
+      <figure class="gal__i" data-cat="paving" data-rise data-rise-d="80">
+        <button class="gal__btn" type="button" aria-label="View larger: driveway paving">
+          <picture>
+            <source srcset="assets/img/paving-driveway.webp" type="image/webp">
+            <img src="assets/img/paving-driveway.jpg" alt="Paved driveway with woven steel boundary fence and clipped shrubs" width="1500" height="1500" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Driveway Paving &amp; Fencing</strong><span>Paving &amp; Fencing</span></figcaption>
+      </figure>
+
+      <figure class="gal__i" data-cat="roof" data-rise>
+        <button class="gal__btn" type="button" aria-label="View larger: chimney waterproofing">
+          <picture>
+            <source srcset="assets/img/waterproofing-chimney.webp" type="image/webp">
+            <img src="assets/img/waterproofing-chimney.jpg" alt="Chimney head rebuilt and sealed with waterproof coating" width="1080" height="678" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Chimney Waterproofing</strong><span>Roofing &amp; Waterproofing</span></figcaption>
+      </figure>
+
+      <figure class="gal__i gal__i--wide" data-cat="build" data-rise data-rise-d="40">
+        <button class="gal__btn" type="button" aria-label="View larger: patio pergola">
+          <picture>
+            <source srcset="assets/img/exterior-pergola.webp" type="image/webp">
+            <img src="assets/img/exterior-pergola.jpg" alt="White timber pergola over a paved patio with solar panels on the roof behind" width="1500" height="1125" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Patio Pergola &amp; Finishes</strong><span>New Builds</span></figcaption>
+      </figure>
+
+      <figure class="gal__i gal__i--tall" data-cat="roof" data-rise data-rise-d="80">
+        <button class="gal__btn" type="button" aria-label="View larger: downpipe and plinth waterproofing">
+          <picture>
+            <source srcset="assets/img/waterproofing-downpipe.webp" type="image/webp">
+            <img src="assets/img/waterproofing-downpipe.jpg" alt="New downpipe run and sealed concrete plinth against a plastered wall" width="928" height="1900" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Downpipe &amp; Plinth</strong><span>Roofing &amp; Waterproofing</span></figcaption>
+      </figure>
+
+      <figure class="gal__i" data-cat="paving" data-rise>
+        <button class="gal__btn" type="button" aria-label="View larger: palisade fencing">
+          <picture>
+            <source srcset="assets/img/fencing-palisade.webp" type="image/webp">
+            <img src="assets/img/fencing-palisade.jpg" alt="Steel palisade fencing being installed on top of a boundary wall" width="1500" height="1125" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Palisade Fencing</strong><span>Paving &amp; Fencing</span></figcaption>
+      </figure>
+
+      <figure class="gal__i gal__i--wide" data-cat="steel" data-rise data-rise-d="40">
+        <button class="gal__btn" type="button" aria-label="View larger: braai fabrication">
+          <picture>
+            <source srcset="assets/img/braai-fabrication.webp" type="image/webp">
+            <img src="assets/img/braai-fabrication.jpg" alt="Custom fabricated steel braai on castors with mesh shelf" width="1500" height="840" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Custom Braai Fabrication</strong><span>Braai &amp; Steel</span></figcaption>
+      </figure>
+
+      <figure class="gal__i gal__i--wide" data-cat="interior" data-rise data-rise-d="80">
+        <button class="gal__btn" type="button" aria-label="View larger: interior fit-out">
+          <picture>
+            <source srcset="assets/img/interior-blinds.webp" type="image/webp">
+            <img src="assets/img/interior-blinds.jpg" alt="Finished interior room with new ceiling, downlights and blockout blinds" width="1500" height="693" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Interior Fit-Out &amp; Blinds</strong><span>Interior &amp; Plumbing</span></figcaption>
+      </figure>
+
+      <figure class="gal__i gal__i--tall" data-cat="interior" data-rise>
+        <button class="gal__btn" type="button" aria-label="View larger: water tank installation">
+          <picture>
+            <source srcset="assets/img/plumbing-tank.webp" type="image/webp">
+            <img src="assets/img/plumbing-tank.jpg" alt="Water storage tank installed on a raised block base with pipework" width="928" height="1900" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Water Tank Installation</strong><span>Interior &amp; Plumbing</span></figcaption>
+      </figure>
+
+      <figure class="gal__i" data-cat="build" data-rise data-rise-d="40">
+        <button class="gal__btn" type="button" aria-label="View larger: steel carport structure">
+          <picture>
+            <source srcset="assets/img/carport-structure.webp" type="image/webp">
+            <img src="assets/img/carport-structure.jpg" alt="Steel framework erected between two buildings ready for roof sheeting" width="1332" height="751" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Steel Carport Structure</strong><span>New Builds</span></figcaption>
+      </figure>
+
+      <figure class="gal__i" data-cat="paving" data-rise data-rise-d="80">
+        <button class="gal__btn" type="button" aria-label="View larger: boundary wall and fencing at dusk">
+          <picture>
+            <source srcset="assets/img/fencing-dusk.webp" type="image/webp">
+            <img src="assets/img/fencing-dusk.jpg" alt="Completed boundary wall and fencing with landscaped gravel bed at dusk" width="1500" height="700" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        <figcaption><strong>Boundary Wall &amp; Landscaping</strong><span>Paving &amp; Fencing</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ cta band ============ -->
+<section class="band">
+  <div class="band__grid" aria-hidden="true"></div>
+  <div class="wrap band__in">
+    <p class="eyebrow eyebrow--light" data-rise><span class="eyebrow__bar"></span>Ready when you are</p>
+    <h2 class="band__h" data-rise data-rise-d="60">Call me for a quote today!</h2>
+    <p class="band__p" data-rise data-rise-d="120">No job too big or too small — we do it all.</p>
+    <div class="band__cta" data-rise data-rise-d="180">
+      <a class="btn btn--white" href="https://wa.me/27724801647" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp us
+      </a>
+      <a class="btn btn--outline" href="tel:+27724801647">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg> +27 72 480 1647
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ contact ============ -->
+<section class="sec sec--paper" id="contact">
+  <div class="wrap contact__grid">
+    <div class="contact__left">
+      <p class="eyebrow" data-rise><span class="eyebrow__bar"></span>06 — Get in touch</p>
+      <h2 class="h2" data-rise data-rise-d="60">Let's talk<br>about your<br><em>project.</em></h2>
+      <p class="contact__lede" data-rise data-rise-d="120">
+        Tell us what you need done. We'll come out, take a look and send you a
+        written quote — free and with no obligation.
+      </p>
+
+      <ul class="contact__list" data-rise data-rise-d="180">
+        <li>
+          <a href="https://wa.me/27724801647" target="_blank" rel="noopener">
+            <span class="contact__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></span>
+            <span><small>WhatsApp / Call</small><strong>+27 72 480 1647</strong></span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:asnbekker@gmail.com">
+            <span class="contact__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <span><small>Email</small><strong>asnbekker@gmail.com</strong></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/profile.php?id=61586231725962" target="_blank" rel="noopener">
+            <span class="contact__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fb"/></svg></span>
+            <span><small>Facebook</small><strong>ASN Bekker</strong></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.snupit.co.za/" target="_blank" rel="noopener" data-needs-url="Snupit profile URL">
+            <span class="contact__ico"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg></span>
+            <span><small>Snupit</small><strong>ASN Bekker</strong></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="contact__right" data-rise data-rise-d="120">
+      <form class="form" id="quoteForm" novalidate>
+        <p class="form__intro">Send your details straight through on WhatsApp — no waiting on email.</p>
+
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Jan Bekker">
+          <span class="field__err" data-err></span>
+        </div>
+
+        <div class="field">
+          <label for="f-phone">Contact number</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="072 000 0000">
+          <span class="field__err" data-err></span>
+        </div>
+
+        <div class="field">
+          <label for="f-service">What do you need?</label>
+          <div class="select">
+            <select id="f-service" name="service" required>
+              <option value="">Select a service…</option>
+              <option>New Build</option>
+              <option>Home Renovation</option>
+              <option>Extension</option>
+              <option>Roofing &amp; Roof Repairs</option>
+              <option>Waterproofing</option>
+              <option>Painting — Interior &amp; Exterior</option>
+              <option>Tiling</option>
+              <option>Paving</option>
+              <option>Ceilings &amp; Partitioning</option>
+              <option>Plumbing &amp; Electrical</option>
+              <option>General Maintenance</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <span class="field__err" data-err></span>
+        </div>
+
+        <div class="field">
+          <label for="f-msg">Tell us about the job <span class="field__opt">(optional)</span></label>
+          <textarea id="f-msg" name="message" rows="4" placeholder="Roughly what needs doing, the size of the job, and where you are."></textarea>
+        </div>
+
+        <button class="btn btn--red btn--full" type="submit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+          Send on WhatsApp
+        </button>
+
+        <p class="form__alt">
+          Prefer email? <a href="mailto:asnbekker@gmail.com">asnbekker@gmail.com</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ footer ============ -->
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <div class="ftr__brand">
+      <img src="assets/img/logo.png" alt="ASN Bekker Construction" width="635" height="373" loading="lazy" decoding="async">
+      <p>Building your vision. Creating your future.</p>
+    </div>
+
+    <nav class="ftr__nav" aria-label="Footer">
+      <div>
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="#work">Our Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#services">New Builds</a>
+        <a href="#services">Renovations</a>
+        <a href="#services">Roofing</a>
+        <a href="#services">Waterproofing</a>
+      </div>
+      <div>
+        <h4>Reach us</h4>
+        <a href="tel:+27724801647">+27 72 480 1647</a>
+        <a href="mailto:asnbekker@gmail.com">asnbekker@gmail.com</a>
+        <a href="https://wa.me/27724801647" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="wrap ftr__base">
+    <p>&copy; <span id="yr">2026</span> ASN Bekker Construction. All rights reserved.</p>
+    <p class="ftr__tag">Building Quality. Delivering Trust.</p>
+  </div>
+</footer>
+
+<!-- ============ floating whatsapp ============ -->
+<a class="fab" id="fab" href="https://wa.me/27724801647" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+</a>
+
+<!-- ============ lightbox ============ -->
+<div class="lbx" id="lbx" role="dialog" aria-modal="true" aria-label="Project image" hidden>
+  <button class="lbx__x" id="lbxX" aria-label="Close">&times;</button>
+  <button class="lbx__nav lbx__nav--prev" id="lbxPrev" aria-label="Previous image">&#8249;</button>
+  <button class="lbx__nav lbx__nav--next" id="lbxNext" aria-label="Next image">&#8250;</button>
+  <figure class="lbx__fig">
+    <img id="lbxImg" alt="">
+    <figcaption id="lbxCap"></figcaption>
+  </figure>
+</div>
+
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
+</script>
+<script src="js/main.js" defer></script>
+<script type="module" src="js/blueprint.js"></script>
+</body>
+</html>
