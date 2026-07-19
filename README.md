@@ -1,7 +1,9 @@
 # ASN Bekker Construction — website
 
-Static site. No build step, no framework, no database. Upload the contents of
-this `site/` folder to any web host and it runs.
+**Live:** https://obsidianstudiodesigns.github.io/asn-bekker-construction/
+
+Static site. No build step, no framework, no database. Served by GitHub Pages
+from `main` at the repository root — pushing to `main` redeploys it.
 
 ```
 site/
@@ -13,18 +15,15 @@ site/
   assets/video/      hero video (mp4 + webm) and poster frame
 ```
 
-## Before it goes live — two links need filling in
+## Outstanding — one link still needs a real URL
 
-Both are in `index.html`, in the contact section. They currently point at the
-service homepages because the real profile URLs weren't supplied:
+The **Snupit** link in the contact section currently points at the Snupit
+homepage, because the real profile URL wasn't supplied. Search `index.html`
+for `data-needs-url` to find it; remove that attribute once the real URL is
+in, since it exists only as a marker.
 
-| Line | What to replace |
-|---|---|
-| `<a href="https://www.facebook.com/" ... data-needs-url="Facebook page URL">` | the real ASN Bekker Facebook page URL |
-| `<a href="https://www.snupit.co.za/" ... data-needs-url="Snupit profile URL">` | the real Snupit profile URL |
-
-Search the file for `data-needs-url` to find them. Remove that attribute once
-the real URL is in — it exists only as a marker.
+Facebook is done — it points at
+`facebook.com/profile.php?id=61586231725962`.
 
 ## Content notes
 
