@@ -453,8 +453,13 @@ section[id]{ scroll-margin-top:calc(var(--hdr-h) + 12px); }
     linear-gradient(180deg, var(--ink), var(--ink-2));
 }
 
-.proc__in{ position:relative; z-index:2; }
-.proc__head{ max-width:560px; margin-bottom:clamp(48px,6vw,86px); }
+/* head + steps ride above the absolute canvas on desktop. Both are .wrap
+   elements (max-width + gutter); the heading text is capped on its children so
+   the container still spans the full column and the copy stays left-aligned. */
+.proc__head,
+.proc__steps{ position:relative; z-index:2; }
+.proc__head{ margin-bottom:clamp(48px,6vw,86px); }
+.proc__head > *{ max-width:560px; }
 .proc__note{ color:var(--txt-dim); margin-top:22px; font-size:.98rem; max-width:42ch; }
 
 .steps{
@@ -837,6 +842,20 @@ body.is-locked{ overflow:hidden; }
   .ba{ grid-template-columns:1fr; }
   .ftr__nav{ grid-template-columns:repeat(2,1fr); }
   .lbx__nav{ top:auto; bottom:14px; transform:none; }
+}
+
+@media (max-width:900px){
+  /* DOM order is head -> canvas -> steps, so on mobile the canvas just needs
+     to rejoin the flow (relative + a height) to sit as its own band between
+     the heading and the steps, instead of filling the section behind them. */
+  .proc__head{ margin-bottom:22px; }
+  .proc__canvasWrap{
+    position:relative; inset:auto; z-index:0;
+    height:46svh; min-height:300px;
+    margin-bottom:30px;
+  }
+  .proc__canvasWrap::after{ display:none; }  /* the left scrim is desktop-only */
+  .steps{ grid-template-columns:1fr; }
 }
 
 @media (max-width:600px){

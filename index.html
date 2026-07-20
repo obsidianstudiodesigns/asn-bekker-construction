@@ -278,7 +278,18 @@
 </section>
 
 <!-- ============ 3D process ============ -->
+<!-- head / canvas / steps are flat siblings so the canvas can sit BETWEEN the
+     heading and the steps on mobile (flex order); on desktop the canvas is
+     absolutely positioned to fill the whole section behind the copy. -->
 <section class="proc sec--ink" id="process">
+  <div class="wrap proc__head">
+    <p class="eyebrow eyebrow--light" data-rise><span class="eyebrow__bar"></span>03 — How we build</p>
+    <h2 class="h2 h2--light" data-rise data-rise-d="60">From slab to<br>snag list.</h2>
+    <p class="proc__note" data-rise data-rise-d="120">
+      Every project runs through the same four stages. Scroll to watch it come together.
+    </p>
+  </div>
+
   <div class="proc__canvasWrap">
     <canvas id="scene" aria-hidden="true"></canvas>
     <!-- shown by default; blueprint.js hides it only once the scene is live,
@@ -286,15 +297,7 @@
     <div class="proc__fallback" id="sceneFallback"></div>
   </div>
 
-  <div class="wrap proc__in">
-    <div class="proc__head">
-      <p class="eyebrow eyebrow--light" data-rise><span class="eyebrow__bar"></span>03 — How we build</p>
-      <h2 class="h2 h2--light" data-rise data-rise-d="60">From slab to<br>snag list.</h2>
-      <p class="proc__note" data-rise data-rise-d="120">
-        Every project runs through the same four stages. Scroll to watch it come together.
-      </p>
-    </div>
-
+  <div class="wrap proc__steps">
     <ol class="steps" id="steps">
       <li class="step" data-step="0">
         <span class="step__n">01</span>

@@ -25,12 +25,13 @@ function engage() {
 
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Below ~900px the copy and the step cards fill the whole section, so the
-// build sequence would only ever sit behind text. Skip it entirely there —
-// the visitor keeps the section, and phones skip the three.js download.
-const roomFor3D = window.innerWidth >= 900;
+// The canvas "stage": on desktop it's absolutely positioned to fill the whole
+// section (so it equals the section); on mobile it's an in-flow band between
+// the heading and the steps. Measuring the stage — not the section — is what
+// makes both layouts size and scroll-drive correctly from the same code.
+const stage = canvas ? canvas.parentElement : null;
 
-if (!canvas || !section || !roomFor3D) {
+if (!canvas || !section || !stage) {
   degrade();
 } else {
   boot().catch(degrade);
@@ -271,10 +272,11 @@ async function boot() {
   let shown = -1;
 
   function readScroll() {
-    const r = section.getBoundingClientRect();
+    // Drive the build off the canvas band's travel through the viewport.
+    // On desktop the band == the section, so this is unchanged; on mobile it
+    // means the house is fully built roughly when the band is centred.
+    const r = stage.getBoundingClientRect();
     const vh = window.innerHeight;
-    // 0 when the section top reaches the bottom of the viewport,
-    // 1 by the time its bottom passes the top.
     const raw = (vh - r.top) / (vh + r.height);
     progress = Math.min(1, Math.max(0, raw));
   }
@@ -316,26 +318,31 @@ async function boot() {
   const target  = new THREE.Vector3();
 
   function resize() {
-    const r = section.getBoundingClientRect();
+    const r = stage.getBoundingClientRect();
     const w = Math.max(1, Math.round(r.width));
     const h = Math.max(1, Math.round(r.height));
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
 
-    const wide = w >= 900;
+    const wide = window.innerWidth > 900;   // matches CSS @media (max-width:900px)
 
-    // On desktop the copy fills the left column and the step cards fill the
-    // bottom band, so aim low and to the left of the house — that lifts the
-    // build into the clear top-right quadrant. Narrow screens just centre it.
-    target.set(wide ? -7.0 : 0, wide ? -1.4 : 1.2, 0);
-    house.scale.setScalar(wide ? 0.72 : 0.58);
+    if (wide) {
+      // Desktop: copy fills the left column, step cards fill the bottom band —
+      // aim low and left so the build lifts into the clear top-right quadrant.
+      target.set(-7.0, -1.4, 0);
+      house.scale.setScalar(0.72);
+      const narrow = Math.min(1, w / 1100);
+      baseCam.set(15.5 + (1 - narrow) * 9, 9.5 + (1 - narrow) * 4, 18 + (1 - narrow) * 11);
+    } else {
+      // Mobile: the canvas is its own centred band, so frame the house head-on
+      // and fill more of the frame. Pull back a little as the band gets taller
+      // (portrait) so the roof never clips.
+      target.set(0, 1.5, 0);
+      house.scale.setScalar(0.82);
+      const tall = Math.min(1, h / w);          // ~1 on a portrait band
+      baseCam.set(13.5, 8 + tall * 3, 18 + tall * 4);
+    }
 
-    const narrow = Math.min(1, w / 1100);
-    baseCam.set(
-      15.5 + (1 - narrow) * 9,
-      9.5 + (1 - narrow) * 4,
-      18 + (1 - narrow) * 11
-    );
     camera.position.copy(baseCam);
     camera.lookAt(target);
     camera.updateProjectionMatrix();
@@ -356,7 +363,7 @@ async function boot() {
     (entries) => { visible = entries[0].isIntersecting; },
     { rootMargin: '120px' }
   );
-  io.observe(section);
+  io.observe(stage);
 
   let raf = 0;
   const clock = new THREE.Clock();
